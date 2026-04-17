@@ -1,0 +1,43 @@
+{
+  "scenario_info": {
+    "scenario_id": "linux_real_fault",
+    "name": "真实Linux环境故障模拟",
+    "time_start": "2026-04-17T17:31:46.251263",
+    "time_end": "2026-04-17T19:11:46.251291"
+  },
+  "nodes": [
+    {
+      "node_id": "host01_ssd_io_util",
+      "layer": "H",
+      "metric": "node_disk_io_time_seconds_total{device=\"sda\"}",
+      "has_inherent_defect": true,
+      "node_description": "SSD磁盘IO利用率",
+      "csv_file": "host01_ssd_io_util.csv"
+    },
+    {
+      "node_id": "kernel_sched_latency",
+      "layer": "K",
+      "metric": "node_schedstat_waiting_seconds_total",
+      "has_inherent_defect": false,
+      "node_description": "内核调度等待延迟",
+      "csv_file": "kernel_sched_latency.csv"
+    },
+    {
+      "node_id": "docker_cpu_usage",
+      "layer": "R",
+      "metric": "container_cpu_usage_seconds_total",
+      "has_inherent_defect": false,
+      "node_description": "容器CPU使用率",
+      "csv_file": "docker_cpu_usage.csv"
+    },
+    {
+      "node_id": "app_retries_count",
+      "layer": "A",
+      "metric": "app_retries_total",
+      "has_inherent_defect": false,
+      "node_description": "应用重试次数",
+      "csv_file": "app_retries_count.csv"
+    }
+  ],
+  "logs": []
+}
