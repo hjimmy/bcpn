@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "K08_kernel_deadlock",
+    "scenario_name": "内核死锁/活锁",
+    "root_cause_layer": "K",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "kernel_lock_contention",
+      "layer": "K",
+      "has_inherent_defect": true,
+      "node_description": "内核锁竞争计数（根因）",
+      "csv_file": "nodes/kernel_lock_contention.csv"
+    },
+    {
+      "node_id": "kernel_load_avg",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "系统load average",
+      "csv_file": "nodes/kernel_load_avg.csv"
+    },
+    {
+      "node_id": "docker_process_block",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器阻塞进程数",
+      "csv_file": "nodes/docker_process_block.csv"
+    },
+    {
+      "node_id": "app_unresponsive",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用无响应",
+      "csv_file": "nodes/app_unresponsive.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "内核死锁/活锁 开始"
+    }
+  ]
+}

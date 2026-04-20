@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "A04_syscall_timeout",
+    "scenario_name": "系统调用超时",
+    "root_cause_layer": "A",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "app_syscall_timeout",
+      "layer": "A",
+      "has_inherent_defect": true,
+      "node_description": "系统调用超时次数（根因）",
+      "csv_file": "nodes/app_syscall_timeout.csv"
+    },
+    {
+      "node_id": "app_retry_syscall",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "系统调用重试",
+      "csv_file": "nodes/app_retry_syscall.csv"
+    },
+    {
+      "node_id": "kernel_syscall_load",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "内核系统调用负载",
+      "csv_file": "nodes/kernel_syscall_load.csv"
+    },
+    {
+      "node_id": "docker_syscall_latency",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器系统调用延迟",
+      "csv_file": "nodes/docker_syscall_latency.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "系统调用超时 开始"
+    }
+  ]
+}

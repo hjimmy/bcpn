@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "A05_env_var_missing",
+    "scenario_name": "环境变量配置错误",
+    "root_cause_layer": "A",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "app_env_errors",
+      "layer": "A",
+      "has_inherent_defect": true,
+      "node_description": "环境变量错误计数（根因）",
+      "csv_file": "nodes/app_env_errors.csv"
+    },
+    {
+      "node_id": "app_config_fail",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "配置加载失败",
+      "csv_file": "nodes/app_config_fail.csv"
+    },
+    {
+      "node_id": "app_start_fail",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用启动失败",
+      "csv_file": "nodes/app_start_fail.csv"
+    },
+    {
+      "node_id": "docker_container_crash",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器崩溃",
+      "csv_file": "nodes/docker_container_crash.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "环境变量配置错误 开始"
+    }
+  ]
+}

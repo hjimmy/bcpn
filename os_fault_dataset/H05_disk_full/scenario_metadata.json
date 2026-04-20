@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "H05_disk_full",
+    "scenario_name": "磁盘空间满（inode耗尽）",
+    "root_cause_layer": "H",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "host01_disk_usage",
+      "layer": "H",
+      "has_inherent_defect": true,
+      "node_description": "磁盘空间使用率（根因）",
+      "csv_file": "nodes/host01_disk_usage.csv"
+    },
+    {
+      "node_id": "kernel_fs_errors",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "文件系统错误计数",
+      "csv_file": "nodes/kernel_fs_errors.csv"
+    },
+    {
+      "node_id": "docker_log_errors",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器日志写入错误",
+      "csv_file": "nodes/docker_log_errors.csv"
+    },
+    {
+      "node_id": "app_write_failures",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用写入失败次数",
+      "csv_file": "nodes/app_write_failures.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "磁盘空间满（inode耗尽） 开始"
+    }
+  ]
+}

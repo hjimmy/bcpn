@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "A08_priority_inversion",
+    "scenario_name": "进程优先级反转",
+    "root_cause_layer": "A",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "app_prio_inversion",
+      "layer": "A",
+      "has_inherent_defect": true,
+      "node_description": "优先级反转计数（根因）",
+      "csv_file": "nodes/app_prio_inversion.csv"
+    },
+    {
+      "node_id": "app_high_prio_wait",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "高优先级进程等待",
+      "csv_file": "nodes/app_high_prio_wait.csv"
+    },
+    {
+      "node_id": "kernel_sched_migrate",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "进程迁移计数",
+      "csv_file": "nodes/kernel_sched_migrate.csv"
+    },
+    {
+      "node_id": "app_response_slow",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用响应慢",
+      "csv_file": "nodes/app_response_slow.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "进程优先级反转 开始"
+    }
+  ]
+}

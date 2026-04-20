@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "H07_power_supply",
+    "scenario_name": "电源供应故障（冗余电源失效）",
+    "root_cause_layer": "H",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "host01_power_status",
+      "layer": "H",
+      "has_inherent_defect": true,
+      "node_description": "电源状态（根因：1=故障）",
+      "csv_file": "nodes/host01_power_status.csv"
+    },
+    {
+      "node_id": "kernel_voltage_fluct",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "电压波动计数",
+      "csv_file": "nodes/kernel_voltage_fluct.csv"
+    },
+    {
+      "node_id": "docker_unexpected_exit",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器异常退出次数",
+      "csv_file": "nodes/docker_unexpected_exit.csv"
+    },
+    {
+      "node_id": "app_data_corruption",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用数据校验错误",
+      "csv_file": "nodes/app_data_corruption.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "电源供应故障（冗余电源失效） 开始"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "R03_disk_io_throttle",
+    "scenario_name": "容器磁盘IO限制",
+    "root_cause_layer": "R",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "docker_io_throttled",
+      "layer": "R",
+      "has_inherent_defect": true,
+      "node_description": "IO throttled字节数（根因）",
+      "csv_file": "nodes/docker_io_throttled.csv"
+    },
+    {
+      "node_id": "docker_io_latency",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器IO延迟",
+      "csv_file": "nodes/docker_io_latency.csv"
+    },
+    {
+      "node_id": "app_io_wait",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用IO等待时间",
+      "csv_file": "nodes/app_io_wait.csv"
+    },
+    {
+      "node_id": "app_io_timeouts",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用IO超时",
+      "csv_file": "nodes/app_io_timeouts.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "容器磁盘IO限制 开始"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "scenario_info": {
+    "scenario_id": "standard_ssd_retry_loop",
+    "scenario_name": "标准SSD故障+应用重试自激环场景",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ],
+    "description": "用于验证BCPN模型的标准测试集，包含完整的跨层故障传播和自激反馈环"
+  },
+  "nodes": [
+    {
+      "node_id": "host01_ssd_io_util",
+      "layer": "H",
+      "metric": "node_disk_io_time_seconds_total{device=\"sda\"}",
+      "has_inherent_defect": true,
+      "node_description": "SSD磁盘IO利用率（根因：硬件老化）",
+      "csv_file": "nodes/host01_ssd_io_util.csv"
+    },
+    {
+      "node_id": "kernel_sched_latency",
+      "layer": "K",
+      "metric": "node_schedstat_waiting_seconds_total",
+      "has_inherent_defect": false,
+      "node_description": "内核调度等待延迟",
+      "csv_file": "nodes/kernel_sched_latency.csv"
+    },
+    {
+      "node_id": "docker_mysql_cpu",
+      "layer": "R",
+      "metric": "container_cpu_usage_seconds_total{container_name=\"/mysql\"}",
+      "has_inherent_defect": false,
+      "node_description": "MySQL容器CPU使用率",
+      "csv_file": "nodes/docker_mysql_cpu.csv"
+    },
+    {
+      "node_id": "order_service_retries",
+      "layer": "A",
+      "metric": "app_retries_total",
+      "has_inherent_defect": false,
+      "node_description": "订单服务重试次数（自激环放大器）",
+      "csv_file": "nodes/order_service_retries.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "kernel",
+      "message": "ata1.00: status: { DRDY ERR }, error: { UNC }"
+    },
+    {
+      "timestamp": "2026-04-20T10:04:20",
+      "level": "ERROR",
+      "process": "order-service",
+      "message": "Database connection timeout, retrying..."
+    },
+    {
+      "timestamp": "2026-04-20T10:05:50",
+      "level": "CRITICAL",
+      "process": "prometheus",
+      "message": "SSD IO utilization > 90% for 5 minutes"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "H02_cpu_overheat",
+    "scenario_name": "CPU温度过高（散热故障）",
+    "root_cause_layer": "H",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "host01_cpu_temp",
+      "layer": "H",
+      "has_inherent_defect": true,
+      "node_description": "CPU温度（根因：散热风扇故障）",
+      "csv_file": "nodes/host01_cpu_temp.csv"
+    },
+    {
+      "node_id": "kernel_cpu_throttle",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "CPU降频计数",
+      "csv_file": "nodes/kernel_cpu_throttle.csv"
+    },
+    {
+      "node_id": "docker_app_latency",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器响应延迟",
+      "csv_file": "nodes/docker_app_latency.csv"
+    },
+    {
+      "node_id": "app_timeouts",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用超时次数",
+      "csv_file": "nodes/app_timeouts.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "CPU温度过高（散热故障） 开始"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "A03_semaphore_deadlock",
+    "scenario_name": "信号量死锁",
+    "root_cause_layer": "A",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "app_sem_wait",
+      "layer": "A",
+      "has_inherent_defect": true,
+      "node_description": "信号量等待时间（根因）",
+      "csv_file": "nodes/app_sem_wait.csv"
+    },
+    {
+      "node_id": "app_process_block",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用阻塞进程数",
+      "csv_file": "nodes/app_process_block.csv"
+    },
+    {
+      "node_id": "kernel_sem_ops",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "内核信号量操作",
+      "csv_file": "nodes/kernel_sem_ops.csv"
+    },
+    {
+      "node_id": "app_unresponsive",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用无响应",
+      "csv_file": "nodes/app_unresponsive.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "信号量死锁 开始"
+    }
+  ]
+}

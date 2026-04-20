@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "K03_oom_killer",
+    "scenario_name": "OOM内存回收频繁",
+    "root_cause_layer": "K",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "kernel_oom_score",
+      "layer": "K",
+      "has_inherent_defect": true,
+      "node_description": "OOM Killer触发次数（根因）",
+      "csv_file": "nodes/kernel_oom_score.csv"
+    },
+    {
+      "node_id": "docker_mem_usage",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器内存使用率",
+      "csv_file": "nodes/docker_mem_usage.csv"
+    },
+    {
+      "node_id": "docker_oom_events",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器OOM事件",
+      "csv_file": "nodes/docker_oom_events.csv"
+    },
+    {
+      "node_id": "app_restarts",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用重启次数",
+      "csv_file": "nodes/app_restarts.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "OOM内存回收频繁 开始"
+    }
+  ]
+}

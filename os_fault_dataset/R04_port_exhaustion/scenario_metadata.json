@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "R04_port_exhaustion",
+    "scenario_name": "容器网络端口耗尽",
+    "root_cause_layer": "R",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "docker_port_usage",
+      "layer": "R",
+      "has_inherent_defect": true,
+      "node_description": "端口使用率（根因）",
+      "csv_file": "nodes/docker_port_usage.csv"
+    },
+    {
+      "node_id": "docker_conn_wait",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "连接等待数",
+      "csv_file": "nodes/docker_conn_wait.csv"
+    },
+    {
+      "node_id": "app_conn_fail",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用连接失败",
+      "csv_file": "nodes/app_conn_fail.csv"
+    },
+    {
+      "node_id": "app_conn_retries",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用连接重试",
+      "csv_file": "nodes/app_conn_retries.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "容器网络端口耗尽 开始"
+    }
+  ]
+}

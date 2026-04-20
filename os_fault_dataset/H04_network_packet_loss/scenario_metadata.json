@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "H04_network_packet_loss",
+    "scenario_name": "网络接口丢包（网卡故障）",
+    "root_cause_layer": "H",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "host01_net_drop",
+      "layer": "H",
+      "has_inherent_defect": true,
+      "node_description": "网络接口丢包率（根因）",
+      "csv_file": "nodes/host01_net_drop.csv"
+    },
+    {
+      "node_id": "kernel_net_retrans",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "TCP重传率",
+      "csv_file": "nodes/kernel_net_retrans.csv"
+    },
+    {
+      "node_id": "docker_net_latency",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器网络延迟",
+      "csv_file": "nodes/docker_net_latency.csv"
+    },
+    {
+      "node_id": "app_net_timeouts",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用网络超时",
+      "csv_file": "nodes/app_net_timeouts.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "网络接口丢包（网卡故障） 开始"
+    }
+  ]
+}

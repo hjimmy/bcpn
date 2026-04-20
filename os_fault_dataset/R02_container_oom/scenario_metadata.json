@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "R02_container_oom",
+    "scenario_name": "容器内存OOM被Kill",
+    "root_cause_layer": "R",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "docker_oom_killed",
+      "layer": "R",
+      "has_inherent_defect": true,
+      "node_description": "容器OOM被Kill次数（根因）",
+      "csv_file": "nodes/docker_oom_killed.csv"
+    },
+    {
+      "node_id": "docker_mem_usage",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器内存使用率",
+      "csv_file": "nodes/docker_mem_usage.csv"
+    },
+    {
+      "node_id": "docker_restarts",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器重启次数",
+      "csv_file": "nodes/docker_restarts.csv"
+    },
+    {
+      "node_id": "app_downtime",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用不可用时间",
+      "csv_file": "nodes/app_downtime.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "容器内存OOM被Kill 开始"
+    }
+  ]
+}

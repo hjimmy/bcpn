@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "R06_nproc_limit",
+    "scenario_name": "容器进程数达到上限",
+    "root_cause_layer": "R",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "docker_nproc_usage",
+      "layer": "R",
+      "has_inherent_defect": true,
+      "node_description": "进程数使用率（根因）",
+      "csv_file": "nodes/docker_nproc_usage.csv"
+    },
+    {
+      "node_id": "docker_fork_fail",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "fork失败计数",
+      "csv_file": "nodes/docker_fork_fail.csv"
+    },
+    {
+      "node_id": "app_process_spawn",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用进程创建失败",
+      "csv_file": "nodes/app_process_spawn.csv"
+    },
+    {
+      "node_id": "app_service_unavail",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "服务不可用",
+      "csv_file": "nodes/app_service_unavail.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "容器进程数达到上限 开始"
+    }
+  ]
+}

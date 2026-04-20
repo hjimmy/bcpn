@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "K02_syscall_latency",
+    "scenario_name": "系统调用延迟增加",
+    "root_cause_layer": "K",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "kernel_syscall_latency",
+      "layer": "K",
+      "has_inherent_defect": true,
+      "node_description": "系统调用平均延迟（根因）",
+      "csv_file": "nodes/kernel_syscall_latency.csv"
+    },
+    {
+      "node_id": "docker_syscall_count",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器系统调用计数",
+      "csv_file": "nodes/docker_syscall_count.csv"
+    },
+    {
+      "node_id": "app_func_latency",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用函数调用延迟",
+      "csv_file": "nodes/app_func_latency.csv"
+    },
+    {
+      "node_id": "app_timeouts",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用超时次数",
+      "csv_file": "nodes/app_timeouts.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "系统调用延迟增加 开始"
+    }
+  ]
+}

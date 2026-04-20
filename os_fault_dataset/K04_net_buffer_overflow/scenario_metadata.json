@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "K04_net_buffer_overflow",
+    "scenario_name": "网络栈缓冲区溢出",
+    "root_cause_layer": "K",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "kernel_net_buf_overflow",
+      "layer": "K",
+      "has_inherent_defect": true,
+      "node_description": "网络缓冲区溢出计数（根因）",
+      "csv_file": "nodes/kernel_net_buf_overflow.csv"
+    },
+    {
+      "node_id": "kernel_net_drop",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "内核网络丢包",
+      "csv_file": "nodes/kernel_net_drop.csv"
+    },
+    {
+      "node_id": "docker_net_queue",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器网络队列长度",
+      "csv_file": "nodes/docker_net_queue.csv"
+    },
+    {
+      "node_id": "app_net_errors",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用网络错误",
+      "csv_file": "nodes/app_net_errors.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "网络栈缓冲区溢出 开始"
+    }
+  ]
+}

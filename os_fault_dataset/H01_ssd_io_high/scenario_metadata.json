@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "H01_ssd_io_high",
+    "scenario_name": "SSD磁盘IO利用率飙升（介质坏道）",
+    "root_cause_layer": "H",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "host01_ssd_io_util",
+      "layer": "H",
+      "has_inherent_defect": true,
+      "node_description": "SSD磁盘IO利用率（根因）",
+      "csv_file": "nodes/host01_ssd_io_util.csv"
+    },
+    {
+      "node_id": "kernel_io_wait",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "内核IO等待时间",
+      "csv_file": "nodes/kernel_io_wait.csv"
+    },
+    {
+      "node_id": "docker_app_cpu",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "应用容器CPU使用率",
+      "csv_file": "nodes/docker_app_cpu.csv"
+    },
+    {
+      "node_id": "app_io_errors",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用IO错误次数",
+      "csv_file": "nodes/app_io_errors.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "SSD磁盘IO利用率飙升（介质坏道） 开始"
+    }
+  ]
+}

@@ -638,7 +638,7 @@ if __name__ == "__main__":
     print("="*90)
     
     # 核心修改：指定场景元数据JSON文件路径
-    scenario_json_path = "os_fault_dataset/A01_file_lock_contention/scenario_metadata.json"
+    scenario_json_path = "bcpn_test_scenario/scenario_metadata.json"
     
     try:
         # 从多CSV格式加载数据

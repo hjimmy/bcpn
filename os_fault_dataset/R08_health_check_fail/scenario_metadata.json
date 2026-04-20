@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "R08_health_check_fail",
+    "scenario_name": "容器健康检查失败",
+    "root_cause_layer": "R",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "docker_health_fail",
+      "layer": "R",
+      "has_inherent_defect": true,
+      "node_description": "健康检查连续失败（根因）",
+      "csv_file": "nodes/docker_health_fail.csv"
+    },
+    {
+      "node_id": "docker_container_restart",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器重启次数",
+      "csv_file": "nodes/docker_container_restart.csv"
+    },
+    {
+      "node_id": "app_flapping",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用频繁重启",
+      "csv_file": "nodes/app_flapping.csv"
+    },
+    {
+      "node_id": "app_service_unavail",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "服务不可用",
+      "csv_file": "nodes/app_service_unavail.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "容器健康检查失败 开始"
+    }
+  ]
+}

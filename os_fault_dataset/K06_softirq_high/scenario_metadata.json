@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "K06_softirq_high",
+    "scenario_name": "内核软中断过高",
+    "root_cause_layer": "K",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "kernel_softirq",
+      "layer": "K",
+      "has_inherent_defect": true,
+      "node_description": "软中断CPU占比（根因）",
+      "csv_file": "nodes/kernel_softirq.csv"
+    },
+    {
+      "node_id": "kernel_hardirq",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "硬中断CPU占比",
+      "csv_file": "nodes/kernel_hardirq.csv"
+    },
+    {
+      "node_id": "docker_cpu_steal",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器CPU被抢占时间",
+      "csv_file": "nodes/docker_cpu_steal.csv"
+    },
+    {
+      "node_id": "app_cpu_starve",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用CPU饥饿",
+      "csv_file": "nodes/app_cpu_starve.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "内核软中断过高 开始"
+    }
+  ]
+}

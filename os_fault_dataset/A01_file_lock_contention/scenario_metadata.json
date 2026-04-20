@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "A01_file_lock_contention",
+    "scenario_name": "系统级文件锁竞争",
+    "root_cause_layer": "A",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "app_file_lock_wait",
+      "layer": "A",
+      "has_inherent_defect": true,
+      "node_description": "文件锁等待时间（根因）",
+      "csv_file": "nodes/app_file_lock_wait.csv"
+    },
+    {
+      "node_id": "app_lock_contention",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "锁竞争计数",
+      "csv_file": "nodes/app_lock_contention.csv"
+    },
+    {
+      "node_id": "kernel_lock_wait",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "内核锁等待",
+      "csv_file": "nodes/kernel_lock_wait.csv"
+    },
+    {
+      "node_id": "docker_cpu_iowait",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器IO wait",
+      "csv_file": "nodes/docker_cpu_iowait.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "系统级文件锁竞争 开始"
+    }
+  ]
+}

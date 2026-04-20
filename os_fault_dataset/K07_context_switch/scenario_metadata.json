@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "K07_context_switch",
+    "scenario_name": "进程上下文切换频繁",
+    "root_cause_layer": "K",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "kernel_ctxt",
+      "layer": "K",
+      "has_inherent_defect": true,
+      "node_description": "上下文切换次数/秒（根因）",
+      "csv_file": "nodes/kernel_ctxt.csv"
+    },
+    {
+      "node_id": "kernel_runq",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "运行队列长度",
+      "csv_file": "nodes/kernel_runq.csv"
+    },
+    {
+      "node_id": "docker_threads",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器线程数",
+      "csv_file": "nodes/docker_threads.csv"
+    },
+    {
+      "node_id": "app_thread_spawn",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用线程创建失败",
+      "csv_file": "nodes/app_thread_spawn.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "进程上下文切换频繁 开始"
+    }
+  ]
+}

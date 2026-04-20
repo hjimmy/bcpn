@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "A06_dynamic_lib_load_fail",
+    "scenario_name": "动态库加载失败",
+    "root_cause_layer": "A",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "app_dlopen_fail",
+      "layer": "A",
+      "has_inherent_defect": true,
+      "node_description": "动态库加载失败（根因）",
+      "csv_file": "nodes/app_dlopen_fail.csv"
+    },
+    {
+      "node_id": "app_symbol_error",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "符号解析错误",
+      "csv_file": "nodes/app_symbol_error.csv"
+    },
+    {
+      "node_id": "app_crash",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用崩溃",
+      "csv_file": "nodes/app_crash.csv"
+    },
+    {
+      "node_id": "docker_restart_loop",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器重启循环",
+      "csv_file": "nodes/docker_restart_loop.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "动态库加载失败 开始"
+    }
+  ]
+}

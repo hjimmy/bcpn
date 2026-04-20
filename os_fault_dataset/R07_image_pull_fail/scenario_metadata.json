@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "R07_image_pull_fail",
+    "scenario_name": "容器镜像拉取失败",
+    "root_cause_layer": "R",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "docker_image_pull_err",
+      "layer": "R",
+      "has_inherent_defect": true,
+      "node_description": "镜像拉取失败次数（根因）",
+      "csv_file": "nodes/docker_image_pull_err.csv"
+    },
+    {
+      "node_id": "docker_pending_containers",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "Pending容器数",
+      "csv_file": "nodes/docker_pending_containers.csv"
+    },
+    {
+      "node_id": "app_scale_fail",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用扩容失败",
+      "csv_file": "nodes/app_scale_fail.csv"
+    },
+    {
+      "node_id": "app_capacity_insufficient",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "容量不足",
+      "csv_file": "nodes/app_capacity_insufficient.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "容器镜像拉取失败 开始"
+    }
+  ]
+}

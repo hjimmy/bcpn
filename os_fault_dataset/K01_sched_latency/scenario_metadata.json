@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "K01_sched_latency",
+    "scenario_name": "内核调度延迟过高",
+    "root_cause_layer": "K",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "kernel_sched_latency",
+      "layer": "K",
+      "has_inherent_defect": true,
+      "node_description": "内核调度延迟（根因）",
+      "csv_file": "nodes/kernel_sched_latency.csv"
+    },
+    {
+      "node_id": "docker_cpu_wait",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器CPU等待时间",
+      "csv_file": "nodes/docker_cpu_wait.csv"
+    },
+    {
+      "node_id": "app_response_slow",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用响应时间",
+      "csv_file": "nodes/app_response_slow.csv"
+    },
+    {
+      "node_id": "app_retries",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用重试次数",
+      "csv_file": "nodes/app_retries.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "内核调度延迟过高 开始"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "R01_cpu_throttle",
+    "scenario_name": "Docker容器CPU配额耗尽",
+    "root_cause_layer": "R",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "docker_cpu_throttle",
+      "layer": "R",
+      "has_inherent_defect": true,
+      "node_description": "CPU throttling时间（根因）",
+      "csv_file": "nodes/docker_cpu_throttle.csv"
+    },
+    {
+      "node_id": "docker_cpu_usage",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器CPU使用率",
+      "csv_file": "nodes/docker_cpu_usage.csv"
+    },
+    {
+      "node_id": "app_response_time",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用响应时间",
+      "csv_file": "nodes/app_response_time.csv"
+    },
+    {
+      "node_id": "app_retries",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用重试次数",
+      "csv_file": "nodes/app_retries.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "Docker容器CPU配额耗尽 开始"
+    }
+  ]
+}

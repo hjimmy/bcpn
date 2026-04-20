@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "H03_memory_ecc_error",
+    "scenario_name": "内存ECC错误（硬件故障）",
+    "root_cause_layer": "H",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "host01_ecc_errors",
+      "layer": "H",
+      "has_inherent_defect": true,
+      "node_description": "内存ECC错误计数（根因）",
+      "csv_file": "nodes/host01_ecc_errors.csv"
+    },
+    {
+      "node_id": "kernel_page_faults",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "内核页错误计数",
+      "csv_file": "nodes/kernel_page_faults.csv"
+    },
+    {
+      "node_id": "docker_app_restarts",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器重启次数",
+      "csv_file": "nodes/docker_app_restarts.csv"
+    },
+    {
+      "node_id": "app_crashes",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用崩溃次数",
+      "csv_file": "nodes/app_crashes.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "内存ECC错误（硬件故障） 开始"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "H06_raid_degraded",
+    "scenario_name": "RAID阵列降级（硬盘掉线）",
+    "root_cause_layer": "H",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "host01_raid_status",
+      "layer": "H",
+      "has_inherent_defect": true,
+      "node_description": "RAID阵列状态（根因：1=degraded）",
+      "csv_file": "nodes/host01_raid_status.csv"
+    },
+    {
+      "node_id": "kernel_raid_sync",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "RAID同步IO延迟",
+      "csv_file": "nodes/kernel_raid_sync.csv"
+    },
+    {
+      "node_id": "docker_disk_latency",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器磁盘延迟",
+      "csv_file": "nodes/docker_disk_latency.csv"
+    },
+    {
+      "node_id": "app_disk_slow",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用磁盘操作慢查询",
+      "csv_file": "nodes/app_disk_slow.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "RAID阵列降级（硬盘掉线） 开始"
+    }
+  ]
+}

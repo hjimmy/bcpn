@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "A07_syslog_block",
+    "scenario_name": "系统日志写入阻塞",
+    "root_cause_layer": "A",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "app_syslog_latency",
+      "layer": "A",
+      "has_inherent_defect": true,
+      "node_description": "系统日志写入延迟（根因）",
+      "csv_file": "nodes/app_syslog_latency.csv"
+    },
+    {
+      "node_id": "app_log_queue",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "日志队列长度",
+      "csv_file": "nodes/app_log_queue.csv"
+    },
+    {
+      "node_id": "kernel_syslog_load",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "内核syslog负载",
+      "csv_file": "nodes/kernel_syslog_load.csv"
+    },
+    {
+      "node_id": "docker_log_driver_error",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器日志驱动错误",
+      "csv_file": "nodes/docker_log_driver_error.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "系统日志写入阻塞 开始"
+    }
+  ]
+}

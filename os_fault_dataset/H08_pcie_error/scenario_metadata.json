@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "H08_pcie_error",
+    "scenario_name": "PCIe总线错误",
+    "root_cause_layer": "H",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "host01_pcie_aer",
+      "layer": "H",
+      "has_inherent_defect": true,
+      "node_description": "PCIe AER错误计数（根因）",
+      "csv_file": "nodes/host01_pcie_aer.csv"
+    },
+    {
+      "node_id": "kernel_pci_reset",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "PCI设备重置计数",
+      "csv_file": "nodes/kernel_pci_reset.csv"
+    },
+    {
+      "node_id": "docker_device_error",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器设备访问错误",
+      "csv_file": "nodes/docker_device_error.csv"
+    },
+    {
+      "node_id": "app_device_fail",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用设备操作失败",
+      "csv_file": "nodes/app_device_fail.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "PCIe总线错误 开始"
+    }
+  ]
+}

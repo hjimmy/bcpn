@@ -1,0 +1,50 @@
+{
+  "scenario_info": {
+    "scenario_id": "K05_fs_journal_lag",
+    "scenario_name": "文件系统日志同步延迟",
+    "root_cause_layer": "K",
+    "fault_start_time": "2026-04-20T10:03:20",
+    "fault_end_time": "2026-04-20T10:09:50",
+    "affected_hosts": [
+      "host01"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "kernel_journal_lag",
+      "layer": "K",
+      "has_inherent_defect": true,
+      "node_description": "文件系统日志同步延迟（根因）",
+      "csv_file": "nodes/kernel_journal_lag.csv"
+    },
+    {
+      "node_id": "kernel_fs_sync",
+      "layer": "K",
+      "has_inherent_defect": false,
+      "node_description": "fsync调用延迟",
+      "csv_file": "nodes/kernel_fs_sync.csv"
+    },
+    {
+      "node_id": "docker_disk_sync",
+      "layer": "R",
+      "has_inherent_defect": false,
+      "node_description": "容器磁盘同步延迟",
+      "csv_file": "nodes/docker_disk_sync.csv"
+    },
+    {
+      "node_id": "app_transaction_fail",
+      "layer": "A",
+      "has_inherent_defect": false,
+      "node_description": "应用事务失败",
+      "csv_file": "nodes/app_transaction_fail.csv"
+    }
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-04-20T10:03:20",
+      "level": "WARNING",
+      "process": "system",
+      "message": "文件系统日志同步延迟 开始"
+    }
+  ]
+}
